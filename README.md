@@ -40,7 +40,9 @@ Test_repo/
 ├── cypress/
 │   ├── e2e/                       # Tests End-to-End
 │   │   ├── register.cy.js         # Tests de registro de usuarios
-│   │   └── login.cy.js            # Tests de login de usuarios
+│   │   ├── login.cy.js            # Tests de login de usuarios
+│   │   └── api/                   # Tests de API
+│   │       └── ejercicio4-api-tests.cy.js  # Tests completos de API
 │   ├── fixtures/                  # Datos de prueba
 │   │   ├── users.json             # Usuarios mock para registro
 │   │   └── created-users.json     # Usuarios creados exitosamente (temporal)
@@ -53,7 +55,8 @@ Test_repo/
 │   ├── improvements-ui.md         # Mejoras sugeridas para UI
 │   ├── improvements-api.md        # Mejoras sugeridas para API
 │   ├── quality-analysis.md        # Análisis de calidad del sistema
-│   └── ejercicio2-bug-report.md   # Bug report del ejercicio 2
+│   ├── ejercicio2-bug-report.md   # Bug report del ejercicio 2
+│   └── ejercicio4-api-analysis.md # Análisis completo de tests de API
 ├── package.json                   # Dependencias y scripts
 └── README.md                      # Este archivo
 ```
@@ -170,6 +173,91 @@ cy.deleteAccount()
 }
 ```
 
+### 🔌 **Ejercicio 4: Tests Completos de API**
+
+#### **Endpoints Testeados**
+
+**1. `/qa/test1` - QA Test Service ✅**
+- **URL:** `https://echo-serv.tbxnet.com/v1/qa/test1`
+- **Estado:** Funcional (200 OK)
+- **Response Time:** ~365ms
+- **Validaciones:** Status code, response time, body structure, headers
+
+**2. `/system/ping` - System Health Check ✅**
+- **URL:** `https://echo-serv.tbxnet.com/v1/system/ping`
+- **Estado:** Funcional (200 OK)
+- **Response Time:** ~178ms (Excelente para ping)
+- **Validaciones:** Performance específica, consistency testing
+
+**3. `/qa/test2` - Endpoint Problemático ⚠️**
+- **URL:** `https://echo-serv.tbxnet.com/v1/qa/test2`
+- **Estado:** Error 500 (Confirmado y documentado)
+- **Validaciones:** Error handling, estructura de mensajes de error
+
+#### **Validaciones Implementadas**
+
+**✅ Status Code Validation**
+- Verificación de códigos 200 para endpoints funcionales
+- Manejo de códigos de error (404, 500)
+- Validación de respuestas no exitosas
+
+**✅ Response Time Validation**
+- Tiempo de respuesta < 3 segundos (requisito general)
+- Tiempo de respuesta < 1 segundo para `/system/ping`
+- Análisis estadístico de performance
+
+**✅ Response Body Validation**
+- Estructura JSON válida
+- Validación de tipos de datos (boolean, string)
+- Verificación de campos requeridos (`ok`, `date`)
+- Validación de formato de fecha
+
+**✅ Headers Validation**
+- Verificación de `Content-Type: application/json`
+- Detección de headers adicionales de servidor
+- Validación de headers de seguridad
+
+**✅ Error Handling**
+- Manejo de endpoints inexistentes (404)
+- Manejo de errores del servidor (500)
+- Validación de estructura de mensajes de error
+
+**✅ Performance & Consistency Testing**
+- Tests de consistencia con múltiples llamadas
+- Análisis estadístico de tiempos de respuesta
+- Verificación de estabilidad del servicio
+
+#### **Casos de Uso Cubiertos**
+
+**Casos Positivos:**
+- Endpoints funcionales con validación completa
+- Performance testing y medición de tiempos
+- Consistency testing con múltiples requests
+- Validación de estructura y tipos de datos
+
+**Casos Negativos:**
+- Endpoints inexistentes (404)
+- Errores del servidor (500)
+- Validación de formato de mensajes de error
+- Timeout handling
+
+**Casos Edge:**
+- Validación de timestamps recientes
+- Análisis de comportamiento bajo carga ligera
+- Verificación de recovery después de errores
+
+#### **Métricas de Calidad**
+
+**Success Rate:**
+- Endpoints Funcionales: 100% (2/2)
+- Tests Pasados: 100% (7/7)
+- Cobertura de Casos: 100%
+
+**Performance Metrics:**
+- Response Time Compliance: 100%
+- Ping Performance: Excelente (<200ms)
+- API Stability: 100% consistent
+
 ## 🚀 Ejecución de Tests
 
 ### **Comandos Principales**
@@ -196,6 +284,12 @@ npm run test:login
 
 # Ejecutar todos los tests de UI
 npm run test:ui
+
+# Ejecutar todos los tests de API
+npm run test:api
+
+# Ejecutar todos los tests (UI + API)
+npm run test:all
 ```
 
 ### **Flujo Recomendado de Ejecución**
@@ -311,12 +405,15 @@ DEBUG=cypress:* npm run test:register
 - [Best Practices de Cypress](https://docs.cypress.io/guides/references/best-practices)
 - [Automation Exercise - Aplicación de prueba](https://automationexercise.com)
 
-## 🎯 **Próximos Pasos**
+## 🎯 **Estado del Proyecto**
 
-1. **Tests de API:** Implementar tests para endpoints de `https://echo-serv.tbxnet.com`
-2. **Integración continua:** Configurar CI/CD pipeline
-3. **Reportes:** Implementar reportes HTML detallados
-4. **Performance:** Optimizar tiempos de ejecución
+### ✅ **Completado**
+1. **✅ Tests de UI:** Sistema completo de registro y login implementado
+2. **✅ Tests de API:** Validación completa de endpoints Echo Server
+3. **✅ Documentación:** Bug reports y análisis de mejoras
+4. **✅ Comandos personalizados:** Funcionalidades avanzadas implementadas
+
+
 
 ---
 

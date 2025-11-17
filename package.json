@@ -9,10 +9,13 @@
     "cypress:run:register": "cypress run --spec 'cypress/e2e/register.cy.js'",
     "cypress:run:login": "cypress run --spec 'cypress/e2e/login.cy.js'",
     "cypress:run:ui": "cypress run --spec 'cypress/e2e/*.cy.js'",
+    "cypress:run:api": "cypress run --spec 'cypress/e2e/api/*.cy.js'",
     "test": "cypress run",
     "test:ui": "npm run cypress:run:ui",
+    "test:api": "npm run cypress:run:api",
     "test:register": "npm run cypress:run:register",
-    "test:login": "npm run cypress:run:login"
+    "test:login": "npm run cypress:run:login",
+    "test:all": "cypress run --spec 'cypress/e2e/**/*.cy.js'"
   },
   "keywords": [
     "cypress",
