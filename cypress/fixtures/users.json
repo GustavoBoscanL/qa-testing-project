@@ -1,0 +1,71 @@
+{
+  "testUsers": [
+    {
+      "id": 1,
+      "name": "Juan Carlos",
+      "email": "juan.carlos.test@example.com",
+      "password": "TestPassword123!",
+      "title": "Mr",
+      "dateOfBirth": {
+        "day": "15",
+        "month": "March",
+        "year": "1990"
+      },
+      "firstName": "Juan",
+      "lastName": "Carlos",
+      "company": "Test Company SA",
+      "address1": "Av. Corrientes 1234",
+      "address2": "Piso 5, Depto B",
+      "country": "United States",
+      "state": "California",
+      "city": "Los Angeles",
+      "zipcode": "90210",
+      "mobileNumber": "+1-555-0123"
+    },
+    {
+      "id": 2,
+      "name": "Maria Rodriguez",
+      "email": "maria.rodriguez.test@example.com",
+      "password": "SecurePass456#",
+      "title": "Mrs",
+      "dateOfBirth": {
+        "day": "22",
+        "month": "July",
+        "year": "1985"
+      },
+      "firstName": "Maria",
+      "lastName": "Rodriguez",
+      "company": "Tech Solutions Inc",
+      "address1": "123 Main Street",
+      "address2": "Suite 200",
+      "country": "United States",
+      "state": "New York",
+      "city": "New York",
+      "zipcode": "10001",
+      "mobileNumber": "+1-555-0456"
+    },
+    {
+      "id": 3,
+      "name": "Carlos Mendoza",
+      "email": "carlos.mendoza.test@example.com",
+      "password": "MyPassword789$",
+      "title": "Mr",
+      "dateOfBirth": {
+        "day": "8",
+        "month": "December",
+        "year": "1992"
+      },
+      "firstName": "Carlos",
+      "lastName": "Mendoza",
+      "company": "Digital Innovations LLC",
+      "address1": "456 Oak Avenue",
+      "address2": "Apt 12A",
+      "country": "United States",
+      "state": "Texas",
+      "city": "Houston",
+      "zipcode": "77001",
+      "mobileNumber": "+1-555-0789"
+    }
+  ]
+}
+

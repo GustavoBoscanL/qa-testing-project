@@ -1,0 +1,29 @@
+{
+  "name": "cypress-testing-exercises",
+  "version": "1.0.0",
+  "description": "Proyecto de ejercicios de testing con Cypress - UI y API",
+  "main": "index.js",
+  "scripts": {
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "cypress:run:register": "cypress run --spec 'cypress/e2e/register.cy.js'",
+    "cypress:run:login": "cypress run --spec 'cypress/e2e/login.cy.js'",
+    "cypress:run:ui": "cypress run --spec 'cypress/e2e/*.cy.js'",
+    "test": "cypress run",
+    "test:ui": "npm run cypress:run:ui",
+    "test:register": "npm run cypress:run:register",
+    "test:login": "npm run cypress:run:login"
+  },
+  "keywords": [
+    "cypress",
+    "testing",
+    "e2e",
+    "api"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^13.6.0"
+  }
+}
+

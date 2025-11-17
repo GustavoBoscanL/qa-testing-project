@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+.pnp/
+
+# Cypress
+cypress/videos/
+cypress/screenshots/
+
+# Environment files
+.env
+.env.local
+_config/cypress.env.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test artifacts
+coverage/
+.nyc_output/
+
+# Logs
+*.log
